@@ -1,0 +1,75 @@
+<!-- <p>register works!</p>
+<button (click)="fetchJobOptions()">fetch job options</button>
+
+<form [formGroup]="registrationForm" (ngSubmit)="Register" class="text-center">
+    <label for="firstName">FirstName</label>
+    <input type="text" id="firstName" formControlName="firstName" placeholder="First Name">
+<br>
+    <label for="lastName">LastName</label>
+    <input type="text" id="lastName" formControlName="lastName" placeholder="Last Name">
+<br>
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email" placeholder="Email">
+<br>
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password" placeholder="Password">
+<br>
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password">
+<br>
+    <label for="job">Job</label>
+    <select  id="jobId" formControlName="jobId">
+       
+        <option *ngFor="let job of jobOptions" [ngValue]="job">{{job.title}}</option>
+    </select>
+
+    <button (click)="Register()">register</button>
+</form>
+ -->
+
+<!-- ---------------------------------------------------------------------------- -->
+<app-navbar></app-navbar>
+<form class="form" [formGroup]="registrationForm" (ngSubmit)="Register">
+    <p class="title">Register </p>
+    <p class="message">Signup now and get full access to our app. </p>
+        <div class="flex">
+        <label for="firstName">
+            <input class="input" type="text" id="firstName" formControlName="firstName" required>
+            <!-- <input class="input" type="text" id="firstName" formControlName="firstName" [(ngModel)]="registrationForm.errors?.['required]" #firstName="ngModel" required> -->
+            <span>Firstname</span>
+        </label>
+        <!-- <div class="alert alert-danger" *ngIf="firstName.errors"></div> -->
+
+        <label for="lastName">
+            <input class="input" type="text" id="lastName" formControlName="lastName" required>
+            <span>Lastname</span>
+        </label>
+    </div>  
+            
+    <label for="email">
+        <input class="input" type="text" id="email" formControlName="email" required>
+        <span appSetBackground>Email</span>
+    </label> 
+        
+    <label for="password">
+        <input class="input" type="password" id="password" formControlName="password" required>
+        <span>Password</span>
+    </label>
+    <label for="confirmPassword">
+        <input class="input" type="password" id="confirmPassword" formControlName="confirmPassword" required *ngIf="">
+        <span>Confirm password</span>
+    </label>
+
+    <label for="job">Job</label>
+
+    <select *appUnless="jobOptions.length==0" class="button"   id="jobId" formControlName="jobId" required>
+       
+        <option *ngFor="let job of jobOptions" [ngValue]="job">{{job.title}}</option>
+    </select>
+
+
+
+    <button class="submit" (click)="Register()">Submit</button>
+    <button class="submit" (click)="goToLogin()">Login</button>
+    
+</form>

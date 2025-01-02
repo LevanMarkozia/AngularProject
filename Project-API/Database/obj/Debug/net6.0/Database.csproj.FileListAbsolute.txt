@@ -1,0 +1,68 @@
+D:\Jobs\HCM\Schedule\Database\bin\Debug\net6.0\Database.deps.json
+D:\Jobs\HCM\Schedule\Database\bin\Debug\net6.0\Database.runtimeconfig.json
+D:\Jobs\HCM\Schedule\Database\bin\Debug\net6.0\Database.dll
+D:\Jobs\HCM\Schedule\Database\bin\Debug\net6.0\Database.pdb
+D:\Jobs\HCM\Schedule\Database\bin\Debug\net6.0\Business.dll
+D:\Jobs\HCM\Schedule\Database\bin\Debug\net6.0\Business.pdb
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\Database.csproj.AssemblyReference.cache
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\Database.AssemblyInfoInputs.cache
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\Database.AssemblyInfo.cs
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\Database.csproj.CoreCompileInputs.cache
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\Database.csproj.CopyComplete
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\Database.dll
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\refint\Database.dll
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\Database.pdb
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\Database.genruntimeconfig.cache
+D:\Jobs\HCM\Schedule\Database\obj\Debug\net6.0\ref\Database.dll
+D:\Tutorial\Project\Project-API\Database\bin\Debug\net6.0\Database.deps.json
+D:\Tutorial\Project\Project-API\Database\bin\Debug\net6.0\Database.runtimeconfig.json
+D:\Tutorial\Project\Project-API\Database\bin\Debug\net6.0\Database.dll
+D:\Tutorial\Project\Project-API\Database\bin\Debug\net6.0\Database.pdb
+D:\Tutorial\Project\Project-API\Database\bin\Debug\net6.0\Business.dll
+D:\Tutorial\Project\Project-API\Database\bin\Debug\net6.0\Business.pdb
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\Database.csproj.AssemblyReference.cache
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\Database.AssemblyInfoInputs.cache
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\Database.AssemblyInfo.cs
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\Database.csproj.CoreCompileInputs.cache
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\Database.csproj.CopyComplete
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\Database.dll
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\refint\Database.dll
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\Database.pdb
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\Database.genruntimeconfig.cache
+D:\Tutorial\Project\Project-API\Database\obj\Debug\net6.0\ref\Database.dll
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\bin\Debug\net6.0\Database.deps.json
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\bin\Debug\net6.0\Database.runtimeconfig.json
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\bin\Debug\net6.0\Database.dll
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\bin\Debug\net6.0\Database.pdb
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\bin\Debug\net6.0\Business.dll
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\bin\Debug\net6.0\Business.pdb
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.csproj.AssemblyReference.cache
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.AssemblyInfoInputs.cache
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.AssemblyInfo.cs
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.csproj.CoreCompileInputs.cache
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.csproj.CopyComplete
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.dll
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\refint\Database.dll
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.pdb
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.genruntimeconfig.cache
+C:\Angular\Routing\routing 1\API-Register\BS---Project\Project-API\Database\obj\Debug\net6.0\ref\Database.dll
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\bin\Debug\net6.0\Database.deps.json
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\bin\Debug\net6.0\Database.runtimeconfig.json
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\bin\Debug\net6.0\Database.dll
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\bin\Debug\net6.0\Database.pdb
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\bin\Debug\net6.0\Business.dll
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\bin\Debug\net6.0\Business.pdb
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.csproj.AssemblyReference.cache
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.AssemblyInfoInputs.cache
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.AssemblyInfo.cs
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.csproj.CoreCompileInputs.cache
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.csproj.CopyComplete
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.dll
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\refint\Database.dll
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.pdb
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\Database.genruntimeconfig.cache
+E:\CODE\UniWeb\LevanMarkoziaAngularProject\BS---Project\Project-API\Database\obj\Debug\net6.0\ref\Database.dll
