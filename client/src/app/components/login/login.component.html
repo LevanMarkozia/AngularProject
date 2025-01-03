@@ -1,18 +1,27 @@
 <app-navbar></app-navbar>
-<p>login works!</p>
 <form [formGroup]="loginForm">
     <h2>Log in</h2>
-    <div>
-        <label for="email">Email</label>
-        <input type="text" id="email" formControlName="email" 
-        placeholder="Email">
+  
+    <div> 
+      <label for="email">Email</label>
+      <input type="text" id="email" formControlName="email" placeholder="Email">
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        <p *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</p>
+        <p *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email.</p>
+      </div>
     </div>
+  
     <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password" 
-        placeholder="Password">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" placeholder="Password">
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <p *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</p>
+        <p *ngIf="loginForm.get('password')?.errors?.['minlength']">
+          Password must be at least 6 characters long.
+        </p>
+      </div>
     </div>
-
+  
     <button (click)="Login()">Log In</button>
     <button (click)="goToRegister()">Register</button>
-</form>
+  </form>

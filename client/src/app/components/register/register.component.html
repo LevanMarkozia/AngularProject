@@ -29,47 +29,62 @@
 
 <!-- ---------------------------------------------------------------------------- -->
 <app-navbar></app-navbar>
-<form class="form" [formGroup]="registrationForm" (ngSubmit)="Register">
-    <p class="title">Register </p>
-    <p class="message">Signup now and get full access to our app. </p>
-        <div class="flex">
+<form class="form" [formGroup]="registrationForm" (ngSubmit)="Register()">
+    <p class="title"> Register </p>
+    <p class="message"> Signup now and get full access to our app. </p>
+  
+    <div class="flex">
         <label for="firstName">
             <input class="input" type="text" id="firstName" formControlName="firstName" required>
-            <!-- <input class="input" type="text" id="firstName" formControlName="firstName" [(ngModel)]="registrationForm.errors?.['required]" #firstName="ngModel" required> -->
-            <span>Firstname</span>
-        </label>
-        <!-- <div class="alert alert-danger" *ngIf="firstName.errors"></div> -->
-
-        <label for="lastName">
-            <input class="input" type="text" id="lastName" formControlName="lastName" required>
-            <span>Lastname</span>
-        </label>
-    </div>  
-            
+            <span> First name </span>
+          </label>
+          <div *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched">
+            <p *ngIf="registrationForm.get('firstName')?.errors?.['required']"> First name is required. </p>
+          </div>
+  
+      <label for="lastName">
+        <input class="input" type="text" id="lastName" formControlName="lastName" required>
+        <span> Last name </span>
+      </label>
+      <div *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched">
+        <p *ngIf="registrationForm.get('lastName')?.errors?.['required']"> Last name is required. </p>
+      </div>
+    </div>
+  
     <label for="email">
-        <input class="input" type="text" id="email" formControlName="email" required>
-        <span appSetBackground>Email</span>
-    </label> 
-        
+      <input class="input" type="text" id="email" formControlName="email" required>
+      <span> Email </span>
+    </label>
+    <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+      <p *ngIf="registrationForm.get('email')?.errors?.['required']"> Email is required. </p>
+      <p *ngIf="registrationForm.get('email')?.errors?.['email']"> Enter a valid email. </p>
+    </div>
+  
     <label for="password">
-        <input class="input" type="password" id="password" formControlName="password" required>
-        <span>Password</span>
+      <input class="input" type="password" id="password" formControlName="password" required>
+      <span> Password </span>
     </label>
+    <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+      <p *ngIf="registrationForm.get('password')?.errors?.['required']"> Password is required. </p>
+      <p *ngIf="registrationForm.get('password')?.errors?.['minlength']"> Password must be at least 6 characters long. </p>
+    </div>
+  
     <label for="confirmPassword">
-        <input class="input" type="password" id="confirmPassword" formControlName="confirmPassword" required *ngIf="">
-        <span>Confirm password</span>
+      <input class="input" type="password" id="confirmPassword" formControlName="confirmPassword" required>
+      <span> Confirm Password </span>
     </label>
-
+    <div *ngIf="registrationForm.errors?.['passwordMismatch'] && registrationForm.get('confirmPassword')?.touched">
+      <p> Passwords dont match. </p>
+    </div>
+  
     <label for="job">Job</label>
-
-    <select *appUnless="jobOptions.length==0" class="button"   id="jobId" formControlName="jobId" required>
-       
-        <option *ngFor="let job of jobOptions" [ngValue]="job">{{job.title}}</option>
+    <select *appUnless="jobOptions.length==0" class="button" id="jobId" formControlName="jobId" required>
+      <option *ngFor="let job of jobOptions" [ngValue]="job">{{job.title}}</option>
     </select>
-
-
-
-    <button class="submit" (click)="Register()">Submit</button>
-    <button class="submit" (click)="goToLogin()">Login</button>
-    
-</form>
+    <div *ngIf="registrationForm.get('jobId')?.invalid && registrationForm.get('jobId')?.touched">
+      <p> Please select a job. </p>
+    </div>
+    <button class="submit" (click)="fetchJobOptions()"> Fetch Job Options</button>
+    <button class="submit" (click)="Register()"> Submit </button>
+    <button class="submit" (click)="goToLogin()"> Login </button>
+  </form>
