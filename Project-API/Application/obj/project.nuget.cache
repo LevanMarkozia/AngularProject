@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G0QqA+Egj1lJ+RX9NdKEi3O/pXssG0/JQTNjdoJJk5mP81CMvA4gSTk9z9WFQecgz5RiBiFbFh0fPqNrKQtXeg==",
+  "dgSpecHash": "Uz1torWioTgjfKajmmHrbi8y97qBNeIoJ2apEvFoKpI7DiYXSXgH1N0RJ/zfBAAGh2jzKdTCQAzJMj6YTh+9HQ==",
   "success": true,
-  "projectFilePath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Application\\Application.csproj",
+  "projectFilePath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\warfa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\warfa\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

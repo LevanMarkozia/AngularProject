@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Business\\Business.csproj": {}
+    "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj": {}
   },
   "projects": {
-    "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Business\\Business.csproj": {
+    "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Business\\Business.csproj",
+        "projectUniqueName": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Business\\Business.csproj",
+        "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj",
         "packagesPath": "C:\\Users\\warfa\\.nuget\\packages\\",
-        "outputPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Business\\obj\\",
+        "outputPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\warfa\\AppData\\Roaming\\NuGet\\NuGet.Config"

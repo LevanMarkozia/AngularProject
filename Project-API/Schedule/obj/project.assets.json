@@ -6146,11 +6146,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Schedule\\Schedule.csproj",
+      "projectUniqueName": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Schedule\\Schedule.csproj",
       "projectName": "Schedule",
-      "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Schedule\\Schedule.csproj",
+      "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Schedule\\Schedule.csproj",
       "packagesPath": "C:\\Users\\warfa\\.nuget\\packages\\",
-      "outputPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Schedule\\obj\\",
+      "outputPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Schedule\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\warfa\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6165,14 +6165,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Application\\Application.csproj": {
-              "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Application\\Application.csproj"
+            "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Application\\Application.csproj": {
+              "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Application\\Application.csproj"
             },
-            "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Business\\Business.csproj": {
-              "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Business\\Business.csproj"
+            "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj": {
+              "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj"
             },
-            "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Database\\Database.csproj": {
-              "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Database\\Database.csproj"
+            "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Database\\Database.csproj": {
+              "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Database\\Database.csproj"
             }
           }
         }
