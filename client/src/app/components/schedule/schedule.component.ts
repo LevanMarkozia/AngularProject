@@ -10,7 +10,6 @@ export class ScheduleComponent {
   currDate:Date=new Date;
   currWeek:Date[]=[];
   currWeekDates:String[]=[];
-  datePipe:DatePipe=new DatePipe('en-US','+0400');
   ngOnInit(){
     this.currDate=new Date;
     this.getCurrWeek();
