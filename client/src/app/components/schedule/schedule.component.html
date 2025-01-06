@@ -22,11 +22,9 @@
         <tbody>
             <ng-container *ngFor="let job of jobs">
                 <tr>
-                    <td rowspan="2" class="job-title">{{ job.title }}</td> <!-- Job title spans 2 rows -->
+                    <td rowspan="2" class="job-title">{{ job.title }}</td>
                     
-                    <!-- Morning shift column -->
                     <td *ngFor="let date of weekDates" class="text-center">
-                        <!-- Check if there is a morning shift scheduled for this job on this date -->
                         <div *ngFor="let schedule of organizedSchedules[date]?.[job.id]?.morning">
                             <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
                         </div>
@@ -34,9 +32,7 @@
                 </tr>
 
                 <tr>
-                    <!-- Night shift column -->
                     <td *ngFor="let date of weekDates" class="text-center">
-                        <!-- Check if there is a night shift scheduled for this job on this date -->
                         <div *ngFor="let schedule of organizedSchedules[date]?.[job.id]?.night">
                             <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
                         </div>

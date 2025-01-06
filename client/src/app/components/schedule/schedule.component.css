@@ -2,3 +2,12 @@
     vertical-align: middle;
     font-weight: bold;
 }
+
+table td {
+    height: 40px;
+    width: 160px;
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    vertical-align: middle;
+}
