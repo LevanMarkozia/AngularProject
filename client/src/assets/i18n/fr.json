@@ -1,0 +1,11 @@
+{
+    "REGISTER": "S'inscrine",
+    "SIGNUP_MESSAGE": "Inscrivez-vous maintenant et obtenez un accès complet à notre application",
+    "FIRST_NAME": "Prenom",
+    "LAST_NAME": "Nom de famille",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Mot de passe",
+    "CONFIRM_PASSWORD": "Confirmer le mot de passe",
+    "JOB": "Emploi",
+    "SUBMIT": "Soumettre"
+}

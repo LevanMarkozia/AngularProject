@@ -28,15 +28,15 @@
  -->
 
 <!-- ---------------------------------------------------------------------------- -->
-<app-navbar></app-navbar>
-<form class="form" [formGroup]="registrationForm" (ngSubmit)="Register()">
-    <p class="title"> Register </p>
-    <p class="message"> Signup now and get full access to our app. </p>
+<div class="container">
+  <form class="form" [formGroup]="registrationForm" (ngSubmit)="Register()">
+    <p class="title"> {{'REGISTER' | translate}} </p>
+    <p class="message"> {{'SIGNUP_MESSAGE' | translate }} </p>
   
     <div class="flex">
         <label for="firstName">
             <input class="input" type="text" id="firstName" formControlName="firstName" required>
-            <span> First name </span>
+            <span> {{'FIRST_NAME' | translate}} </span>
           </label>
           <div *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched">
             <p *ngIf="registrationForm.get('firstName')?.errors?.['required']"> First name is required. </p>
@@ -44,7 +44,7 @@
   
       <label for="lastName">
         <input class="input" type="text" id="lastName" formControlName="lastName" required>
-        <span> Last name </span>
+        <span> {{'LAST_NAME' | translate}} </span>
       </label>
       <div *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched">
         <p *ngIf="registrationForm.get('lastName')?.errors?.['required']"> Last name is required. </p>
@@ -53,7 +53,7 @@
   
     <label for="email">
       <input class="input" type="text" id="email" formControlName="email" required>
-      <span> Email </span>
+      <span> {{'EMAIL' | translate}} </span>
     </label>
     <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
       <p *ngIf="registrationForm.get('email')?.errors?.['required']"> Email is required. </p>
@@ -62,7 +62,7 @@
   
     <label for="password">
       <input class="input" type="password" id="password" formControlName="password" required>
-      <span> Password </span>
+      <span> {{'PASSWORD' | translate}} </span>
     </label>
     <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
       <p *ngIf="registrationForm.get('password')?.errors?.['required']"> Password is required. </p>
@@ -71,7 +71,7 @@
   
     <label for="confirmPassword">
       <input class="input" type="password" id="confirmPassword" formControlName="confirmPassword" required>
-      <span> Confirm Password </span>
+      <span> {{'CONFIRM_PASSWORD' | translate}} </span>
     </label>
     <div *ngIf="registrationForm.errors?.['passwordMismatch'] && registrationForm.get('confirmPassword')?.touched">
       <p> Passwords dont match. </p>
@@ -88,3 +88,4 @@
     <button class="submit" (click)="Register()"> Submit </button>
     <button class="submit" (click)="goToLogin()"> Login </button>
   </form>
+</div>

@@ -1,11 +1,11 @@
 export interface Schedule {
-    Id: number;
-    StartTime: Date;
-    EndTime: Date;
-    UserId: number;
-    JobId: number;
-    FirstName: String;
-    LastName: String;
-    JobName: String;
-    IsApproved: boolean;
+    id: number;
+    startTime: Date;
+    endTime: Date;
+    userId: number;
+    jobId: number;
+    firstName: String;
+    lastName: String;
+    jobName: String;
+    isApproved: boolean;
 }

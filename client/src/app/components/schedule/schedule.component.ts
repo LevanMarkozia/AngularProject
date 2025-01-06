@@ -30,11 +30,13 @@ export class ScheduleComponent {
   nextWeek(){
     this.currDate=new Date(this.currDate.setDate(this.currDate.getDate()-this.currDate.getDay()+7));
     this.getCurrWeek();
+    this.getCurrWeekSchedules();
   }
 
   previousWeek(){
     this.currDate=new Date(this.currDate.setDate(this.currDate.getDate()-this.currDate.getDay()-7));
     this.getCurrWeek();
+    this.getCurrWeekSchedules();
   }
 
   //Kviris dgheebis mixedvit tarighebis gamotvla, currWeek aris raw Date obieqti da currWeekDates aris string formatshi rata cxrilshi pirdapir chavsvat
@@ -78,12 +80,9 @@ export class ScheduleComponent {
   getCurrWeekSchedules(){
     this.allSchedules.forEach(element => {
       let nextWeekFirstDay:Date=new Date(this.dummyDate.setDate(this.currWeek[6].getDate()+1));
-      //mtlianad elements rodesac vprintav consolshi mashin startTimes da endTimes normalurad achvenebs,
-      //magram rodesac cal-calke gamomaqvs element.StartTime da element.EndTime mashin undefined wers
-      //Amitomac ver adarebs normalurad
-      //Shesabamisad ver amatebs currWeekSchedules arrayshi
-      console.log(element.StartTime+" | "+this.currWeek[0]+" | "+element.EndTime+" | "+nextWeekFirstDay);
-      if(element.StartTime>=this.currWeek[0]&&element.EndTime<nextWeekFirstDay){
+      console.log(element.startTime+" | "+this.currWeek[0]+" | "+element.endTime+" | "+nextWeekFirstDay);
+      if(element.startTime.getTime()>=this.currWeek[0].getTime()&&element.endTime.getTime()<nextWeekFirstDay.getTime()){
+        //Drois formatebi ar emtxveva, ase rom ver adarebs ertmanets da shesabamisad ver pushavs
         this.currWeekSchedules.push(element);
 
       }
