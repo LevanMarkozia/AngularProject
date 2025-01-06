@@ -5,6 +5,47 @@
 <table>
     <tr>
         <td></td>
+        <td>Monday (day)</td>
+        <td>Monday (night)</td>
+        <td>Tuesday (day)</td>
+        <td>Tuesday (night)</td>
+        <td>Wednesday (day)</td>
+        <td>Wednesday (night)</td>
+        <td>Thursday (day)</td>
+        <td>Thursday (night)</td>
+        <td>Friday (day)</td>
+        <td>Friday (night)</td>
+        <td>Saturday (day)</td>
+        <td>Saturday (night)</td>
+        <td>Sunday (day)</td>
+        <td>Sunday (night)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>{{this.mon.date()+"."+(this.mon.month()+1)+"."+this.mon.year()}}</td>
+        <td>{{this.mon.date()+"."+(this.mon.month()+1)+"."+this.mon.year()}}</td>
+        <td>{{this.tue.date()+"."+(this.tue.month()+1)+"."+this.tue.year()}}</td>
+        <td>{{this.tue.date()+"."+(this.tue.month()+1)+"."+this.tue.year()}}</td>
+        <td>{{this.wed.date()+"."+(this.wed.month()+1)+"."+this.wed.year()}}</td>
+        <td>{{this.wed.date()+"."+(this.wed.month()+1)+"."+this.wed.year()}}</td>
+        <td>{{this.thu.date()+"."+(this.thu.month()+1)+"."+this.thu.year()}}</td>
+        <td>{{this.thu.date()+"."+(this.thu.month()+1)+"."+this.thu.year()}}</td>
+        <td>{{this.fri.date()+"."+(this.fri.month()+1)+"."+this.fri.year()}}</td>
+        <td>{{this.fri.date()+"."+(this.fri.month()+1)+"."+this.fri.year()}}</td>
+        <td>{{this.sat.date()+"."+(this.sat.month()+1)+"."+this.sat.year()}}</td>
+        <td>{{this.sat.date()+"."+(this.sat.month()+1)+"."+this.sat.year()}}</td>
+        <td>{{this.sun.date()+"."+(this.sun.month()+1)+"."+this.sun.year()}}</td>
+        <td>{{this.sun.date()+"."+(this.sun.month()+1)+"."+this.sun.year()}}</td>
+    </tr>
+    <tr>
+        <td>Security</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -13,9 +54,55 @@
         <td></td>
         <td></td>
     </tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
+    <tr>
+        <td>Cook</td>
+        <td *ngFor="let sched of allSchedules">h</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Barista</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Waiter</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
 </table>
