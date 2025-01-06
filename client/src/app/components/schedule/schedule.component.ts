@@ -17,6 +17,7 @@ export class ScheduleComponent implements OnInit {
   schedules: Schedule[] = [];
 
   organizedSchedules: { [date: string]: { [jobId: number]: { morning: Schedule[], night: Schedule[] } } } = {};
+  currentWeek: moment.Moment = moment();
 
   ngOnInit(): void {
     this.generateCurrentWeek();
@@ -29,10 +30,10 @@ export class ScheduleComponent implements OnInit {
   ){}
 
   generateCurrentWeek(): void {
-    const today = moment();
-    const startOfWeek = today.clone().startOf('isoWeek'); 
-    const endOfWeek = today.clone().endOf('isoWeek');
+    const startOfWeek = this.currentWeek.clone().startOf('isoWeek');
+    const endOfWeek = this.currentWeek.clone().endOf('isoWeek');
 
+    this.weekDates = [];
     for (let date = startOfWeek; date.isSameOrBefore(endOfWeek); date.add(1, 'day')) {
       this.weekDates.push(date.format('MMM D'));
     }
@@ -52,6 +53,8 @@ export class ScheduleComponent implements OnInit {
   }
 
   organizeSchedules(): void {
+    this.organizedSchedules = {};
+
     this.schedules.forEach(schedule => {
       const date = moment(schedule.startTime).format('MMM D');
       const shiftType = moment(schedule.startTime).hour() < 12 ? 'morning' : 'night';
@@ -66,5 +69,23 @@ export class ScheduleComponent implements OnInit {
 
       this.organizedSchedules[date][schedule.jobId][shiftType].push(schedule);
     });
+  }
+
+  goToNextWeek(): void {
+    this.currentWeek.add(1, 'week');
+    this.generateCurrentWeek();
+    this.getSchedules();
+  }
+
+  goToPreviousWeek(): void {
+    this.currentWeek.subtract(1, 'week');
+    this.generateCurrentWeek();
+    this.getSchedules();
+  }
+
+  goToCurrentWeek(): void {
+    this.currentWeek = moment();
+    this.generateCurrentWeek();
+    this.getSchedules();
   }
 }
