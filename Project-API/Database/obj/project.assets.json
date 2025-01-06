@@ -5877,32 +5877,39 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\warfa\\.nuget\\packages\\": {}
+    "C:\\Users\\theas\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Database\\Database.csproj",
+      "projectUniqueName": "C:\\Users\\theas\\OneDrive\\Documents\\GitHub\\AngularProject\\Project-API\\Database\\Database.csproj",
       "projectName": "Database",
-      "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Database\\Database.csproj",
-      "packagesPath": "C:\\Users\\warfa\\.nuget\\packages\\",
-      "outputPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Database\\obj\\",
+      "projectPath": "C:\\Users\\theas\\OneDrive\\Documents\\GitHub\\AngularProject\\Project-API\\Database\\Database.csproj",
+      "packagesPath": "C:\\Users\\theas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\theas\\OneDrive\\Documents\\GitHub\\AngularProject\\Project-API\\Database\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\warfa\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\theas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Business\\Business.csproj": {
-              "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\BS---Project\\Project-API\\Business\\Business.csproj"
+            "C:\\Users\\theas\\OneDrive\\Documents\\GitHub\\AngularProject\\Project-API\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\theas\\OneDrive\\Documents\\GitHub\\AngularProject\\Project-API\\Business\\Business.csproj"
             }
           }
         }
@@ -5970,7 +5977,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

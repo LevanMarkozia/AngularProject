@@ -1,0 +1,12 @@
+{
+    "REGISTER": "Registrieren",
+    "LOGIN_MESSAGE": "Melden Sie sich jetzt an und erhalten Sie vollen Zugriff auf unsere App",
+    "SIGNUP_MESSAGE": "Melden Sie sich jetzt an und erhalten Sie vollen Zugriff auf unsere App",
+    "FIRST_NAME": "Vorname",
+    "LAST_NAME": "Nachname",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Passwort",
+    "CONFIRM_PASSWORD": "Password Bestatigen",
+    "JOB": "Beruf",
+    "SUBMIT": "Einreichen"
+}
