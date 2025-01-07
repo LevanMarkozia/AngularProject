@@ -18,7 +18,7 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
+    protected userService: UserService,
     private router: Router,
 
   ) {}
@@ -57,10 +57,6 @@ export class RegisterComponent {
     }
   }
 
-  goToLogin(){
-    this.router.navigate(['/login']);
-  }
-
   fetchJobOptions(): void {
     this.userService.getJobOptions().subscribe({
       next: (response) => {
@@ -71,9 +67,5 @@ export class RegisterComponent {
         console.error('Error fetching job options:', error);
       }
     });
-  }
-
-
-
-  
+  }  
 }

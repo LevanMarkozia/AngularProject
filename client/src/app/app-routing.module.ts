@@ -7,6 +7,7 @@ import { WorkerComponent } from './components/worker/worker.component';
 import { AdminGuard } from './guards/admin.guard';
 import { WorkerGuard } from './guards/worker.guard';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { JobsComponent } from './components/jobs/jobs.component';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'worker', component: WorkerComponent, canActivate:[WorkerGuard]},
   {path:'admin', component: AdminComponent, canActivate:[AdminGuard]},
   {path:'schedule', component: ScheduleComponent, canActivate:[WorkerGuard]},
+  {path:'jobs', component: JobsComponent, canActivate:[AdminGuard]},
 
   {path:'', redirectTo: '/login', pathMatch: 'full'},
 ];

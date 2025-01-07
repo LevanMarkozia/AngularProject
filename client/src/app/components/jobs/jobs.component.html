@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div>
+    <form class="form" [formGroup]="jobForm" (ngSubmit)="addNewJob()">
+        <h1>Add a job</h1>
+
+        <input class="form-select" type="text" name="title" id="" formControlName="title">
+
+        <button class="btn btn-primary">Add Job</button>
+
+        <div *ngIf="jobForm.get('title')?.invalid && jobForm.get('title')?.touched">
+            <p> Please enter a title. </p>
+        </div>
+    </form>
+    <br>
+
+    <div>
+        <h1>Jobs list</h1>
+        <table>
+            <tr *ngFor="let job of jobOptions">
+                <td>{{job.title}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteJob(job)">Delete job</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    <button (click)="this.userService.goToSchedule()">Go to the schedules dashboard</button>
+    <button (click)="this.userService.goToWorker()">Go to the worker dashboard</button>
+    <button (click)="this.userService.goToAdmin()">Go to the admin dashboard</button>
+</div>

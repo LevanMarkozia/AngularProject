@@ -10,13 +10,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class WorkerComponent {
 
-  constructor(private userService: UserService,private router:Router){}
+  constructor(protected userService: UserService,private router:Router){}
 
   logOut(){
     this.userService.logOut();
-  }
-  goToSchedule(){
-    this.router.navigate(['/schedule']);
   }
 
 }

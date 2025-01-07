@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
-<p>worker works!</p>
+<h1>Worker Dashboard</h1>
 <button (click)="logOut()">Log Out</button>
-<button (click)="goToSchedule()">Go to schedule</button>
+<button (click)="this.userService.goToSchedule()">Go to the schedules dashboard</button>
+<button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToAdmin()">Go to the admin dashboard</button>

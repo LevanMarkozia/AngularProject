@@ -4,7 +4,7 @@
 
 <div class="container">
     <table class="table table-bordered table-striped">
-        <thead class="table-dark">
+        <thead>
             <tr>
                 <th></th>
                 <th *ngFor="let date of weekDates" class="text-center">
@@ -26,9 +26,21 @@
                     
                     <td *ngFor="let date of weekDates" class="text-center">
                         <div *ngFor="let schedule of organizedSchedules[date]?.[job.id]?.morning">
-                            <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
-                            <br>
-                            <button class="btn btn-primary" *ngIf="!schedule.isApproved" (click)="approveScheduleRequest(schedule)">Approve</button>
+                            <div *ngIf="schedule.isApproved" class="shift shift--morning">
+                                <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                                <button *ngIf="userService.isAdmin()" class="shift_btn delete" (click)="deleteSchedule(schedule.id)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </div>
+                            <div *ngIf="!schedule.isApproved" class="shift unapproved">
+                                <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                                <button class="shift_btn approve" (click)="approveScheduleRequest(schedule)" (click)="deleteSchedule(schedule.id)">
+                                    <fa-icon [icon]="faCheck"></fa-icon>
+                                </button>
+                                <button *ngIf="userService.isAdmin()" class="shift_btn delete">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -36,9 +48,21 @@
                 <tr>
                     <td *ngFor="let date of weekDates" class="text-center">
                         <div *ngFor="let schedule of organizedSchedules[date]?.[job.id]?.night">
-                            <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
-                            <br>
-                            <button class="btn btn-primary" *ngIf="!schedule.isApproved" (click)="approveScheduleRequest(schedule)">Approve</button>
+                            <div *ngIf="schedule.isApproved" class="shift shift--night">
+                                <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                                <button *ngIf="userService.isAdmin()" class="shift_btn delete" (click)="deleteSchedule(schedule.id)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </div>
+                            <div *ngIf="!schedule.isApproved" class="shift unapproved">
+                                <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                                <button class="shift_btn approve" (click)="approveScheduleRequest(schedule)">
+                                    <fa-icon [icon]="faCheck"></fa-icon>
+                                </button>
+                                <button *ngIf="userService.isAdmin()" class="shift_btn delete" (click)="deleteSchedule(schedule.id)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -46,7 +70,7 @@
         </tbody>
     </table>
 
-    <div class="d-flex justify-content-around">
+    <div class="controls">
         <button class="btn btn-primary" (click)="goToPreviousWeek()">Previous Week</button>
         <button class="btn btn-secondary" (click)="goToCurrentWeek()">Current Week</button>
         <button class="btn btn-primary" (click)="goToNextWeek()">Next Week</button>
@@ -78,4 +102,8 @@
             <button class="btn btn-primary">Add Schedule</button>
         </form>
     </div>
+    <br>
+    <button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToJobs()">Go to the jobs dashboard</button>
+    <button (click)="this.userService.goToWorker()">Go to the worker dashboard</button>
+    <button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToAdmin()">Go to the admin dashboard</button>
 </div>

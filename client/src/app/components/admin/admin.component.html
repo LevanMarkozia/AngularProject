@@ -1,3 +1,6 @@
-<p>admin works!</p>
+<app-navbar></app-navbar>
+<h1>Admin Dashboard</h1>
 <button (click)="logOut()">Log Out</button>
-<button (click)="goToSchedule()">Go to schedule</button>
+<button (click)="this.userService.goToSchedule()">Go to the schedules dashboard</button>
+<button (click)="this.userService.goToJobs()">Go to the jobs dashboard</button>
+<button (click)="this.userService.goToWorker()">Go to the worker dashboard</button>

@@ -30,4 +30,8 @@ private apiUrlWorker = 'https://localhost:44330/api/Worker';
   addScheduleRequest(requestData:any):Observable<Schedule>{
     return this.http.post<Schedule>(`${this.apiUrlWorker}/add-schedule-request`,requestData);
   }
+
+  deleteSchedule(scheduleId: any): Observable<void>{
+    return this.http.delete<void>(`${this.apiUrlAdmin}/delete-schedule/${scheduleId}`);
+  }
 }

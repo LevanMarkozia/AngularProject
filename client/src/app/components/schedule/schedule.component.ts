@@ -7,6 +7,9 @@ import { ScheduleService } from 'src/app/services/schedule.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-schedule',
@@ -14,6 +17,9 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent implements OnInit {
+  faCheck = faCheck;
+  faTrash = faTrash;
+
   weekDates: string[] = [];
   weekDays: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   jobs: Job[] = [];
@@ -67,7 +73,7 @@ export class ScheduleComponent implements OnInit {
 
     this.schedules.forEach(schedule => {
       const date = moment(schedule.startTime).format('MMM D');
-      const shiftType = moment(schedule.startTime).hour() < 12 ? 'morning' : 'night';
+      const shiftType = (moment(schedule.startTime).hour() < 16 && moment(schedule.startTime).hour()>=8)? 'morning' : 'night';
       
       if (!this.organizedSchedules[date]) {
         this.organizedSchedules[date] = {};
@@ -107,8 +113,7 @@ export class ScheduleComponent implements OnInit {
     if(!schedule.isApproved&&this.userService.isAdmin()){
       this.scheduleService.approveScheduleRequest(schedule).subscribe();
       this.generateCurrentWeek();
-      this.goToPreviousWeek();
-      this.goToNextWeek();
+      location.reload()
     }
   }
 
@@ -156,5 +161,17 @@ export class ScheduleComponent implements OnInit {
         }
       });
     }
+  }
+
+  deleteSchedule(scheduleId: any): void{
+    this.scheduleService.deleteSchedule(scheduleId).subscribe({
+      next: () => {
+        console.log("Schedule Deleted");
+        location.reload()
+      },
+      error: (err) => {
+        console.error('Error deleting schedule: ', err);
+      }
+    })
   }
 }

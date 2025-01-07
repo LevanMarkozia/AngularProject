@@ -85,7 +85,7 @@
       <p> Please select a job. </p>
     </div>
     <button class="submit" (click)="fetchJobOptions()"> Fetch Job Options</button>
-    <button class="submit" (click)="Register()"> Submit </button>
-    <button class="submit" (click)="goToLogin()"> Login </button>
+    <button class="submit"> Submit </button>
+    <button class="submit" (click)="this.userService.goToLogin()"> Login </button>
   </form>
 </div>

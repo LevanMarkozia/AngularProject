@@ -68,4 +68,28 @@ export class UserService {
     localStorage.removeItem('token');
     this.router.navigate(['/login'])
   }
+
+  goToWorker(){
+    this.router.navigate(['/worker']);
+  }
+
+  goToAdmin(){
+    this.router.navigate(['/admin']);
+  }
+
+  goToJobs(){
+    this.router.navigate(['/jobs']);
+  }
+  
+  goToLogin(){
+    this.router.navigate(['/login']);
+  }
+  
+  goToRegister(){
+    this.router.navigate(['/register']);
+  }
+
+  goToSchedule(){
+    this.router.navigate(['/schedule'])
+  }
 }

@@ -15,7 +15,8 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { ScheduleEditComponent } from './components/schedule-edit/schedule-edit.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { JobsComponent } from './components/jobs/jobs.component';
 
 export function HttpLoaderFactory(http:HttpClient): TranslateHttpLoader{
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,9 +33,10 @@ export function HttpLoaderFactory(http:HttpClient): TranslateHttpLoader{
     AdminComponent,
     ScheduleComponent,
     NavbarComponent,
-    ScheduleEditComponent,
+    JobsComponent,
   ],
   imports: [
+    FontAwesomeModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
