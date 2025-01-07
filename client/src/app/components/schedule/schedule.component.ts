@@ -1,114 +1,160 @@
-import { DatePipe, formatDate, NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 import * as moment from 'moment';
+import { Job } from 'src/app/interfaces/job';
 import { Schedule } from 'src/app/interfaces/schedule';
 import { ScheduleService } from 'src/app/services/schedule.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css']
 })
-export class ScheduleComponent {
-  constructor(private scheduleService: ScheduleService){}
-  dummyDate:Date=new Date;
-  // currDate:Date=new Date;
-  currDate=moment().startOf('week').isoWeekday(1);
-  mon=moment().isoWeekday(1);
-  tue=moment().isoWeekday(2);
-  wed=moment().isoWeekday(3);
-  thu=moment().isoWeekday(4);
-  fri=moment().isoWeekday(5);
-  sat=moment().isoWeekday(6);
-  sun=moment().isoWeekday(7);
-  currWeek=moment().isoWeek();
-  // currWeekDates:String[]=[];
-  allSchedules:Schedule[]=[];
-  currWeekSchedules:Schedule[]=[];
+export class ScheduleComponent implements OnInit {
+  weekDates: string[] = [];
+  weekDays: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  jobs: Job[] = [];
+  schedules: Schedule[] = [];
+  requestForm!:FormGroup;
+  shiftOptions=[{name:"Morning"},{name:"Evening"}]
+  datePipe:DatePipe=new DatePipe('en-US','+0400');
 
-  ngOnInit(){
-    // this.currDate=new Date;
-    // this.currDate.setHours(0);
-    // this.currDate.setMinutes(0);
-    // this.currDate.setSeconds(0);
-    
-    // this.getCurrWeek();
+  organizedSchedules: { [date: string]: { [jobId: number]: { morning: Schedule[], night: Schedule[] } } } = {};
+  currentWeek: moment.Moment = moment();
+
+  ngOnInit(): void {
+    this.generateCurrentWeek();
+    this.getJobs();
+    this.getSchedules();
+    this.createForm();
   }
 
-  //Albat amis gaketebis rame uketesi metodi arsebobs magram ravi, rac aris aris
-  //amas da previousWeek()s ubralod currentDate gadaaqvs erti kvirit win an ukan rom getCurrWeek()ma tavisi saqme gaaketos
-  nextWeek(){
-    // this.currDate=new Date(this.currDate.setDate(this.currDate.getDate()-this.currDate.getDay()+7));
-    this.currDate=this.currDate.add(1,"week");
-    this.mon=this.mon.add(1,'week');
-    this.tue=this.tue.add(1,'week');
-    this.wed=this.wed.add(1,'week');
-    this.thu=this.thu.add(1,'week');
-    this.fri=this.fri.add(1,'week');
-    this.sat=this.sat.add(1,'week');
-    this.sun=this.sun.add(1,'week');
-    this.getCurrWeekSchedules();
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    protected userService: UserService,
+    private scheduleService: ScheduleService
+  ){}
+
+  generateCurrentWeek(): void {
+    const startOfWeek = this.currentWeek.clone().startOf('isoWeek');
+    const endOfWeek = this.currentWeek.clone().endOf('isoWeek');
+
+    this.weekDates = [];
+    for (let date = startOfWeek; date.isSameOrBefore(endOfWeek); date.add(1, 'day')) {
+      this.weekDates.push(date.format('MMM D'));
+    }
   }
 
-  previousWeek(){
-    // this.currDate=new Date(this.currDate.setDate(this.currDate.getDate()-this.currDate.getDay()-7));
-    this.currDate=this.currDate.subtract(1,"week");
-    this.mon=this.mon.subtract(1,'week');
-    this.tue=this.tue.subtract(1,'week');
-    this.wed=this.wed.subtract(1,'week');
-    this.thu=this.thu.subtract(1,'week');
-    this.fri=this.fri.subtract(1,'week');
-    this.sat=this.sat.subtract(1,'week');
-    this.sun=this.sun.subtract(1,'week');
-    this.getCurrWeekSchedules();
+  getJobs(): void{
+    this.userService.getJobOptions().subscribe((jobs: Job[]) => {
+      this.jobs = jobs;
+    })
   }
 
-  //Kviris dgheebis mixedvit tarighebis gamotvla, currWeek aris raw Date obieqti da currWeekDates aris string formatshi rata cxrilshi pirdapir chavsvat
-  // getCurrWeek(){
-  //   let weekStart=new Date(this.currDate.setDate(this.currDate.getDate()-(7-this.currDate.getDay())+1));
-  //   //TODO mosashorebelia console.log
-  //   console.log(this.currDate);
-  //   this.currWeek.push(new Date(weekStart.setDate(weekStart.getDate())));
-  //   this.currWeekDates.push(formatDate(weekStart,'mediumDate','en'));
-  //   this.currWeek.push(new Date(weekStart.setDate(weekStart.getDate()+1)));
-  //   this.currWeekDates.push(formatDate(weekStart,'mediumDate','en'));
-  //   this.currWeek.push(new Date(weekStart.setDate(weekStart.getDate()+1)));
-  //   this.currWeekDates.push(formatDate(weekStart,'mediumDate','en'));
-  //   this.currWeek.push(new Date(weekStart.setDate(weekStart.getDate()+1)));
-  //   this.currWeekDates.push(formatDate(weekStart,'mediumDate','en'));
-  //   this.currWeek.push(new Date(weekStart.setDate(weekStart.getDate()+1)));
-  //   this.currWeekDates.push(formatDate(weekStart,'mediumDate','en'));
-  //   this.currWeek.push(new Date(weekStart.setDate(weekStart.getDate()+1)));
-  //   this.currWeekDates.push(formatDate(weekStart,'mediumDate','en'));
-  //   this.currWeek.push(new Date(weekStart.setDate(weekStart.getDate()+1)));
-  //   this.currWeekDates.push(formatDate(weekStart,'mediumDate','en'));
-  //   //TODO mosashorebelia console.log
-  //   console.log(this.currWeek);
-  //   console.log(this.currWeekDates);
-  //   this.getCurrWeekSchedules();
-  //   return this.currWeekDates;
-  // }
+  getSchedules(): void {
+    this.userService.getSchedules().subscribe((schedules: Schedule[]) => {
+      this.schedules = schedules;
+      this.organizeSchedules();
+    });
+  }
 
-  fetchAllSchedules(): void {
-    this.scheduleService.getScheduleOptions().subscribe({
-      next: (response) => {
-        this.allSchedules = response;
-        console.log("All schedules:", this.allSchedules);
-      },
-      error: (error) => {
-        console.error('Error fetching schedules:', error);
+  organizeSchedules(): void {
+    this.organizedSchedules = {};
+
+    this.schedules.forEach(schedule => {
+      const date = moment(schedule.startTime).format('MMM D');
+      const shiftType = moment(schedule.startTime).hour() < 12 ? 'morning' : 'night';
+      
+      if (!this.organizedSchedules[date]) {
+        this.organizedSchedules[date] = {};
+      }
+
+      if (!this.organizedSchedules[date][schedule.jobId]) {
+        this.organizedSchedules[date][schedule.jobId] = { morning: [], night: [] };
+      }
+
+      if(this.userService.isAdmin()){
+        this.organizedSchedules[date][schedule.jobId][shiftType].push(schedule);
+      }else if(!this.userService.isAdmin()&&schedule.isApproved==true){
+        this.organizedSchedules[date][schedule.jobId][shiftType].push(schedule);
       }
     });
   }
-  
-  getCurrWeekSchedules(){
-    this.allSchedules.forEach(element => {
-      if(this.currWeek===moment(element.startTime).isoWeek()){
-        this.currWeekSchedules.push(element);
-      }
-    });
-    console.log("Current week's schedules:", this.currWeekSchedules);
+
+  goToNextWeek(): void {
+    this.currentWeek.add(1, 'week');
+    this.generateCurrentWeek();
+    this.getSchedules();
   }
 
+  goToPreviousWeek(): void {
+    this.currentWeek.subtract(1, 'week');
+    this.generateCurrentWeek();
+    this.getSchedules();
+  }
 
+  goToCurrentWeek(): void {
+    this.currentWeek = moment();
+    this.generateCurrentWeek();
+    this.getSchedules();
+  }
+
+  approveScheduleRequest(schedule:Schedule){
+    if(!schedule.isApproved&&this.userService.isAdmin()){
+      this.scheduleService.approveScheduleRequest(schedule).subscribe();
+      this.generateCurrentWeek();
+      this.goToPreviousWeek();
+      this.goToNextWeek();
+    }
+  }
+
+  createForm(): void {
+    this.requestForm = this.fb.group({
+      requestDate: [null,Validators.required],
+      shift: ["",Validators.required]
+    });
+  }
+
+  requestSchedule(): void {
+    if (this.requestForm.valid) {
+      const requestDate=this.requestForm.get("requestDate")?.value;
+      const shift=this.requestForm.get("shift")?.value;
+      let startTime:Date=new Date(requestDate);
+      let endTime:Date=new Date(requestDate);
+      if(shift=="Morning"){
+        startTime.setHours(8);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+        startTime.setMilliseconds(0);
+        endTime.setHours(16);
+        endTime.setMinutes(0);
+        endTime.setSeconds(0);
+        endTime.setMilliseconds(0);
+      }else if(shift=="Evening"){
+        startTime.setHours(16);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+        startTime.setMilliseconds(0);
+        endTime.setHours(22);
+        endTime.setMinutes(0);
+        endTime.setSeconds(0);
+        endTime.setMilliseconds(0);
+      }
+      const uid = this.userService.getUserId();
+      let requestData={startTime:startTime,endTime:endTime,userId:uid};
+      this.scheduleService.addScheduleRequest(requestData).subscribe({
+        next: (response) => {
+          console.log("Schedule requested: ",response);
+          alert("Schedule requested successfully.");
+        },
+        error: (error) => {
+          console.log('Request failed: ', error);
+        }
+      });
+    }
+  }
 }

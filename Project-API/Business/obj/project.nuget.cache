@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JNZkMf8wGb7vFJ7AWmWQ9yZMKdnaQsjipOQRiPQAtuFFMpaV2lzj3WyK6T7rx24UlhfRZStrxqmoxI6MyRUWWA==",
+  "dgSpecHash": "Zsq12b6aywE418k230NONh+T4etbNd59qpBtVxdHIewB7VyMdV/mvwnkTSZTqVkVVZBDqelOuG8vhVjZSy1VWA==",
   "success": true,
-  "projectFilePath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj",
+  "projectFilePath": "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Business\\Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\warfa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\warfa\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

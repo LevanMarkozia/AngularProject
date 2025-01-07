@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Database\\Database.csproj": {}
+    "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Database\\Database.csproj": {}
   },
   "projects": {
-    "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj": {
+    "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj",
+        "projectUniqueName": "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj",
+        "projectPath": "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Business\\Business.csproj",
         "packagesPath": "C:\\Users\\warfa\\.nuget\\packages\\",
-        "outputPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\obj\\",
+        "outputPath": "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\warfa\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -95,14 +95,14 @@
         }
       }
     },
-    "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Database\\Database.csproj": {
+    "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Database\\Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Database\\Database.csproj",
+        "projectUniqueName": "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Database\\Database.csproj",
         "projectName": "Database",
-        "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Database\\Database.csproj",
+        "projectPath": "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Database\\Database.csproj",
         "packagesPath": "C:\\Users\\warfa\\.nuget\\packages\\",
-        "outputPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Database\\obj\\",
+        "outputPath": "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Database\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\warfa\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -117,8 +117,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj": {
-                "projectPath": "E:\\CODE\\UniWeb\\LevanMarkoziaAngularProject\\AngularProject\\Project-API\\Business\\Business.csproj"
+              "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Business\\Business.csproj": {
+                "projectPath": "F:\\LevanMarkoziaAngularProject\\AngularProjectScheduleRemake\\Project-API\\Business\\Business.csproj"
               }
             }
           }

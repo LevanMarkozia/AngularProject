@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,10 +9,12 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private router:Router){}
 
   logOut(){
     this.userService.logOut();
   }
-
+  goToSchedule(){
+    this.router.navigate(['/schedule']);
+  }
 }

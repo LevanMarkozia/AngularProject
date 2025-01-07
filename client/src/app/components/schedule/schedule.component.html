@@ -1,108 +1,81 @@
 <app-navbar></app-navbar>
-<p>schedule works!</p>
-<button (click)="fetchAllSchedules()">Fetch all schedules</button>
-<button (click)="getCurrWeekSchedules()">Get current week schedules</button>
-<table>
-    <tr>
-        <td></td>
-        <td>Monday (day)</td>
-        <td>Monday (night)</td>
-        <td>Tuesday (day)</td>
-        <td>Tuesday (night)</td>
-        <td>Wednesday (day)</td>
-        <td>Wednesday (night)</td>
-        <td>Thursday (day)</td>
-        <td>Thursday (night)</td>
-        <td>Friday (day)</td>
-        <td>Friday (night)</td>
-        <td>Saturday (day)</td>
-        <td>Saturday (night)</td>
-        <td>Sunday (day)</td>
-        <td>Sunday (night)</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>{{this.mon.date()+"."+(this.mon.month()+1)+"."+this.mon.year()}}</td>
-        <td>{{this.mon.date()+"."+(this.mon.month()+1)+"."+this.mon.year()}}</td>
-        <td>{{this.tue.date()+"."+(this.tue.month()+1)+"."+this.tue.year()}}</td>
-        <td>{{this.tue.date()+"."+(this.tue.month()+1)+"."+this.tue.year()}}</td>
-        <td>{{this.wed.date()+"."+(this.wed.month()+1)+"."+this.wed.year()}}</td>
-        <td>{{this.wed.date()+"."+(this.wed.month()+1)+"."+this.wed.year()}}</td>
-        <td>{{this.thu.date()+"."+(this.thu.month()+1)+"."+this.thu.year()}}</td>
-        <td>{{this.thu.date()+"."+(this.thu.month()+1)+"."+this.thu.year()}}</td>
-        <td>{{this.fri.date()+"."+(this.fri.month()+1)+"."+this.fri.year()}}</td>
-        <td>{{this.fri.date()+"."+(this.fri.month()+1)+"."+this.fri.year()}}</td>
-        <td>{{this.sat.date()+"."+(this.sat.month()+1)+"."+this.sat.year()}}</td>
-        <td>{{this.sat.date()+"."+(this.sat.month()+1)+"."+this.sat.year()}}</td>
-        <td>{{this.sun.date()+"."+(this.sun.month()+1)+"."+this.sun.year()}}</td>
-        <td>{{this.sun.date()+"."+(this.sun.month()+1)+"."+this.sun.year()}}</td>
-    </tr>
-    <tr>
-        <td>Security</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Cook</td>
-        <td *ngFor="let sched of allSchedules">h</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Barista</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Waiter</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
+
+<h2 class="mt-4 mb-3 text-center">Schedule</h2>
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th></th>
+                <th *ngFor="let date of weekDates" class="text-center">
+                    {{ date }}
+                </th>
+            </tr>
+            <tr class="table-secondary">
+                <th></th>
+                <th *ngFor="let day of weekDays" class="text-center">
+                    {{ day }}
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <ng-container *ngFor="let job of jobs">
+                <tr>
+                    <td rowspan="2" class="job-title">{{ job.title }}</td>
+                    
+                    <td *ngFor="let date of weekDates" class="text-center">
+                        <div *ngFor="let schedule of organizedSchedules[date]?.[job.id]?.morning">
+                            <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                            <br>
+                            <button class="btn btn-primary" *ngIf="!schedule.isApproved" (click)="approveScheduleRequest(schedule)">Approve</button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td *ngFor="let date of weekDates" class="text-center">
+                        <div *ngFor="let schedule of organizedSchedules[date]?.[job.id]?.night">
+                            <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                            <br>
+                            <button class="btn btn-primary" *ngIf="!schedule.isApproved" (click)="approveScheduleRequest(schedule)">Approve</button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-around">
+        <button class="btn btn-primary" (click)="goToPreviousWeek()">Previous Week</button>
+        <button class="btn btn-secondary" (click)="goToCurrentWeek()">Current Week</button>
+        <button class="btn btn-primary" (click)="goToNextWeek()">Next Week</button>
+    </div>
+
+    <div *ngIf="!this.userService.isAdmin()">
+        <form class="form" [formGroup]="requestForm" (ngSubmit)="requestSchedule()">
+            <h1>Request a schedule</h1>
+            <h2>Choose Date:</h2>
+
+            <input class="form-select" type="date" name="requestDate" id="" formControlName="requestDate">
+
+            <div *ngIf="requestForm.get('requestDate')?.invalid && requestForm.get('requestDate')?.touched">
+                <p> Please select a date. </p>
+            </div>
+
+            <h3>Shift:</h3>
+
+            <select class="form-select" id="shift" formControlName="shift" required formControlName="shift" required>
+                <option *ngFor="let shift of shiftOptions" [ngValue]="shift">{{shift.name}}</option>
+            </select>
+
+            <div *ngIf="requestForm.get('shift')?.invalid && requestForm.get('shift')?.touched">
+                <p> Please select a shift. </p>
+            </div>
+
+            <br>
+            <br>
+            <button class="btn btn-primary">Add Schedule</button>
+        </form>
+    </div>
+</div>
