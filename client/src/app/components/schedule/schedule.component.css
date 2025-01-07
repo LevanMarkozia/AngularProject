@@ -1,18 +1,51 @@
 .job-title{
-    vertical-align: middle;
     font-weight: bold;
+    text-indent: 15px;
 }
 
 table td {
     height: 40px;
-    width: 160px;
+    width: 140px;
     margin: 0;
     padding: 0;
-    padding-left: 15px;
     vertical-align: middle;
+    padding: 0 5px;
 }
 
-.form-select{
-    height: 36px;
-    width: 160px;
+.shift{
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.shift_btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #77fe96;
+    font-size: 1.5rem;
+}
+
+.shift_btn:hover {
+    color: #42a858;
+}
+
+.shift--morning{
+    background-color: lightgreen;
+}
+
+.shift--night{
+    background-color: lightblue;
+}
+
+.unapproved{
+    background-color: rgb(236, 195, 120);
+}
+
+.controls{
+    display: flex;
+    justify-content: space-around;
 }

@@ -7,6 +7,8 @@ import { ScheduleService } from 'src/app/services/schedule.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-schedule',
@@ -14,6 +16,8 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent implements OnInit {
+  faCheck = faCheck;
+
   weekDates: string[] = [];
   weekDays: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   jobs: Job[] = [];
