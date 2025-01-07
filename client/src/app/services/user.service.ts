@@ -11,6 +11,7 @@ import { Schedule } from '../interfaces/schedule';
 export class UserService {
 
   private apiUrl = 'https://localhost:44330/api/user';
+  private apiUrlAdmin = 'https://localhost:44330/api/admin';
 
   constructor(
     private http: HttpClient,
@@ -47,6 +48,10 @@ export class UserService {
 
   getUsers(): Observable<any>{
     return this.http.get(`${this.apiUrl}/users`);
+  }
+
+  deleteUser(userId: any): Observable<void>{
+    return this.http.delete<void>(`${this.apiUrlAdmin}/delete-user/${userId}`);
   }
 
   getJobOptions(): Observable<Job[]> {

@@ -35,4 +35,16 @@ export class WorkerComponent {
       }
     });
   }
+
+  deleteUser(userId: any): void{
+    this.userService.deleteUser(userId).subscribe({
+      next: () => {
+        console.log("User Deleted");
+        location.reload();
+      },
+      error: (err) => {
+        console.error('Error deleting user: ', err);
+      }
+    })
+  }
 }
