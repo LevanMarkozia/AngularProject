@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-schedule',
@@ -17,6 +18,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 })
 export class ScheduleComponent implements OnInit {
   faCheck = faCheck;
+  faTrash = faTrash;
 
   weekDates: string[] = [];
   weekDays: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -160,5 +162,16 @@ export class ScheduleComponent implements OnInit {
         }
       });
     }
+  }
+
+  deleteSchedule(scheduleId: any): void{
+    this.scheduleService.deleteSchedule(scheduleId).subscribe({
+      next: () => {
+        console.log("Schedule Deleted");
+      },
+      error: (err) => {
+        console.error('Error deleting schedule: ', err);
+      }
+    })
   }
 }
