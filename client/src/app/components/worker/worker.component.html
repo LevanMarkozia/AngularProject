@@ -3,3 +3,10 @@
 <button (click)="logOut()">Log Out</button>
 <button (click)="this.userService.goToSchedule()">Go to the schedules dashboard</button>
 <button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToAdmin()">Go to the admin dashboard</button>
+
+<h2>Users List</h2>
+<ul>
+    <li *ngFor="let user of users">
+        <strong>{{ user.firstName }} {{ user.lastName }}</strong> - {{ user.jobId }} {{ user.roleId }}
+    </li>
+</ul>

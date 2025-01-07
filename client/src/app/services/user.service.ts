@@ -45,6 +45,10 @@ export class UserService {
     return uid;
   }
 
+  getUsers(): Observable<any>{
+    return this.http.get(`${this.apiUrl}/users`);
+  }
+
   getJobOptions(): Observable<Job[]> {
     return this.http.get<Job[]>(`${this.apiUrl}/jobs`);
   }
