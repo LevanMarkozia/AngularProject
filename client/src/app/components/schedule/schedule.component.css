@@ -6,7 +6,12 @@
 .table_container{
     width: 95%;
     display: flex;
+    margin: auto;
     justify-content: center;
+}
+
+table th {
+    height: 30px;
 }
 
 table td {
@@ -75,14 +80,52 @@ table td {
 }
 
 .unapproved{
-    background-color: rgb(236, 195, 120);
+    background-color: #FCE5CD;
 }
 
 .controls{
     display: flex;
     justify-content: space-around;
+    margin-top: 20px;
 }
 
-button{
-    margin-right: 8px;
+.controls_btn{
+    height: 40px;
+    border: none;
+    width: 140px;
+    border-radius: 30px;
+    opacity: 1;
+
+    font-weight: bold;
+    background-color: #333333;
+    color: #fff;
+}
+
+.controls_btn:hover{
+    opacity: 0.85;
+}
+
+.schedule_form{
+    margin: auto;
+    width: min(90%, 400px);
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+
+    background-color: #D7C6C6;
+
+    padding-bottom: 50px;
+    margin-top: 20px;
+    border-radius: 20px;
+
+    gap: 10px;
+}
+
+.schedule_form_title{
+    font-weight: bold;
 }

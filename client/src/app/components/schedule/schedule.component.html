@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<h2 class="mt-4 mb-3 text-center">Schedule</h2>
+<h1 class="mt-4 mb-3 text-center">Schedule</h1>
 
 <div class="table_container">
     <table class="table-bordered table-striped">
@@ -82,37 +82,33 @@
 </div>
 
 <div class="controls">
-    <button class="btn btn-primary" (click)="goToPreviousWeek()">Previous Week</button>
-    <button class="btn btn-secondary" (click)="goToCurrentWeek()">Current Week</button>
-    <button class="btn btn-primary" (click)="goToNextWeek()">Next Week</button>
+    <button class="controls_btn" (click)="goToPreviousWeek()">Previous Week</button>
+    <button class="controls_btn" (click)="goToCurrentWeek()">Current Week</button>
+    <button class="controls_btn" (click)="goToNextWeek()">Next Week</button>
 </div>
 
-<div class="container">
-    <form class="form" [formGroup]="requestForm" (ngSubmit)="requestSchedule()">
-        <h1>Request a schedule</h1>
-        <h2>Choose Date:</h2>
+<form class="schedule_form" [formGroup]="requestForm" (ngSubmit)="requestSchedule()">
+    <h2 clas="schedule_form_title">Request a schedule</h2>
+    <p>Choose Date</p>
 
-        <input class="form-select" type="date" name="requestDate" id="" formControlName="requestDate">
+    <input class="form-select" type="date" name="requestDate" id="" formControlName="requestDate">
 
-        <div *ngIf="requestForm.get('requestDate')?.invalid && requestForm.get('requestDate')?.touched">
-            <p> Please select a date. </p>
-        </div>
+    <div *ngIf="requestForm.get('requestDate')?.invalid && requestForm.get('requestDate')?.touched">
+        <p> Please select a date. </p>
+    </div>
 
-        <h3>Shift:</h3>
+    <p>Choose Shift</p>
 
-        <select class="form-select" id="shift" formControlName="shift" required>
-            <option *ngFor="let shift of shiftOptions" [ngValue]="shift">{{shift}}</option>
-        </select>
+    <select class="form-select" id="shift" formControlName="shift" required>
+        <option *ngFor="let shift of shiftOptions" [ngValue]="shift">{{shift}}</option>
+    </select>
 
-        <div *ngIf="requestForm.get('shift')?.invalid && requestForm.get('shift')?.touched">
-            <p> Please select a shift. </p>
-        </div>
+    <div *ngIf="requestForm.get('shift')?.invalid && requestForm.get('shift')?.touched">
+        <p> Please select a shift. </p>
+    </div>
 
-        <br>
-        <br>
-        <button class="btn btn-primary">Add Schedule</button>
-    </form>
-</div>
+    <button class="btn btn-primary">Add Schedule</button>
+</form>
 
 <button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToJobs()">Go to the jobs dashboard</button>
 <button (click)="this.userService.goToWorker()">Go to the worker dashboard</button>
