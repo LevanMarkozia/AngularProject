@@ -2,8 +2,8 @@
 
 <h2 class="mt-4 mb-3 text-center">Schedule</h2>
 
-<div class="container">
-    <table class="table table-bordered table-striped">
+<div class="table_container">
+    <table class="table-bordered table-striped">
         <thead>
             <tr>
                 <th></th>
@@ -18,7 +18,7 @@
                 </th>
             </tr>
         </thead>
-
+    
         <tbody>
             <ng-container *ngFor="let job of jobs">
                 <tr>
@@ -27,41 +27,51 @@
                     <td *ngFor="let date of weekDates" class="text-center">
                         <div *ngFor="let schedule of organizedSchedules[date]?.[job.id]?.morning">
                             <div *ngIf="schedule.isApproved" class="shift shift--morning">
-                                <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
-                                <button *ngIf="userService.isAdmin()" class="shift_btn delete" (click)="deleteSchedule(schedule.id)">
-                                    <fa-icon [icon]="faTrash"></fa-icon>
-                                </button>
+                                <img src="../../../assets/icons/sun.svg" class="shift_icon" />
+                                <span class="shift_name">{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                                <div class="shift_controls">
+                                    <button *ngIf="userService.isAdmin()" class="shift_btn delete" (click)="deleteSchedule(schedule.id)">
+                                        <fa-icon [icon]="faTrash"></fa-icon>
+                                    </button>
+                                </div>
                             </div>
                             <div *ngIf="!schedule.isApproved" class="shift unapproved">
-                                <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
-                                <button class="shift_btn approve" (click)="approveScheduleRequest(schedule)" (click)="deleteSchedule(schedule.id)">
-                                    <fa-icon [icon]="faCheck"></fa-icon>
-                                </button>
-                                <button *ngIf="userService.isAdmin()" class="shift_btn delete">
-                                    <fa-icon [icon]="faTrash"></fa-icon>
-                                </button>
+                                <span class="shift_name">{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                                <div class="shift_controls">
+                                    <button *ngIf="userService.isAdmin()" class="shift_btn delete">
+                                        <fa-icon [icon]="faTrash"></fa-icon>
+                                    </button>
+                                    <button class="shift_btn approve" (click)="approveScheduleRequest(schedule)" (click)="deleteSchedule(schedule.id)">
+                                        <fa-icon [icon]="faCheck"></fa-icon>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </td>
                 </tr>
-
+    
                 <tr>
                     <td *ngFor="let date of weekDates" class="text-center">
                         <div *ngFor="let schedule of organizedSchedules[date]?.[job.id]?.night">
                             <div *ngIf="schedule.isApproved" class="shift shift--night">
-                                <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
-                                <button *ngIf="userService.isAdmin()" class="shift_btn delete" (click)="deleteSchedule(schedule.id)">
-                                    <fa-icon [icon]="faTrash"></fa-icon>
-                                </button>
+                                <img src="../../../assets/icons/moon.svg" class="shift_icon" />
+                                <span class="shift_name">{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                                <div class="shift_controls">
+                                    <button *ngIf="userService.isAdmin()" class="shift_btn delete" (click)="deleteSchedule(schedule.id)">
+                                        <fa-icon [icon]="faTrash"></fa-icon>
+                                    </button>
+                                </div>
                             </div>
                             <div *ngIf="!schedule.isApproved" class="shift unapproved">
-                                <span>{{ schedule.firstName }} {{ schedule.lastName }}</span>
-                                <button class="shift_btn approve" (click)="approveScheduleRequest(schedule)">
-                                    <fa-icon [icon]="faCheck"></fa-icon>
-                                </button>
-                                <button *ngIf="userService.isAdmin()" class="shift_btn delete" (click)="deleteSchedule(schedule.id)">
-                                    <fa-icon [icon]="faTrash"></fa-icon>
-                                </button>
+                                <span class="shift_name">{{ schedule.firstName }} {{ schedule.lastName }}</span>
+                                <div class="shift_controls">
+                                    <button *ngIf="userService.isAdmin()" class="shift_btn delete" (click)="deleteSchedule(schedule.id)">
+                                        <fa-icon [icon]="faTrash"></fa-icon>
+                                    </button>
+                                    <button class="shift_btn approve" (click)="approveScheduleRequest(schedule)">
+                                        <fa-icon [icon]="faCheck"></fa-icon>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </td>
@@ -69,41 +79,41 @@
             </ng-container>
         </tbody>
     </table>
-
-    <div class="controls">
-        <button class="btn btn-primary" (click)="goToPreviousWeek()">Previous Week</button>
-        <button class="btn btn-secondary" (click)="goToCurrentWeek()">Current Week</button>
-        <button class="btn btn-primary" (click)="goToNextWeek()">Next Week</button>
-    </div>
-
-    <div>
-        <form class="form" [formGroup]="requestForm" (ngSubmit)="requestSchedule()">
-            <h1>Request a schedule</h1>
-            <h2>Choose Date:</h2>
-
-            <input class="form-select" type="date" name="requestDate" id="" formControlName="requestDate">
-
-            <div *ngIf="requestForm.get('requestDate')?.invalid && requestForm.get('requestDate')?.touched">
-                <p> Please select a date. </p>
-            </div>
-
-            <h3>Shift:</h3>
-
-            <select class="form-select" id="shift" formControlName="shift" required>
-                <option *ngFor="let shift of shiftOptions" [ngValue]="shift">{{shift}}</option>
-            </select>
-
-            <div *ngIf="requestForm.get('shift')?.invalid && requestForm.get('shift')?.touched">
-                <p> Please select a shift. </p>
-            </div>
-
-            <br>
-            <br>
-            <button class="btn btn-primary">Add Schedule</button>
-        </form>
-    </div>
-    <br>
-    <button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToJobs()">Go to the jobs dashboard</button>
-    <button (click)="this.userService.goToWorker()">Go to the worker dashboard</button>
-    <button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToAdmin()">Go to the admin dashboard</button>
 </div>
+
+<div class="controls">
+    <button class="btn btn-primary" (click)="goToPreviousWeek()">Previous Week</button>
+    <button class="btn btn-secondary" (click)="goToCurrentWeek()">Current Week</button>
+    <button class="btn btn-primary" (click)="goToNextWeek()">Next Week</button>
+</div>
+
+<div class="container">
+    <form class="form" [formGroup]="requestForm" (ngSubmit)="requestSchedule()">
+        <h1>Request a schedule</h1>
+        <h2>Choose Date:</h2>
+
+        <input class="form-select" type="date" name="requestDate" id="" formControlName="requestDate">
+
+        <div *ngIf="requestForm.get('requestDate')?.invalid && requestForm.get('requestDate')?.touched">
+            <p> Please select a date. </p>
+        </div>
+
+        <h3>Shift:</h3>
+
+        <select class="form-select" id="shift" formControlName="shift" required>
+            <option *ngFor="let shift of shiftOptions" [ngValue]="shift">{{shift}}</option>
+        </select>
+
+        <div *ngIf="requestForm.get('shift')?.invalid && requestForm.get('shift')?.touched">
+            <p> Please select a shift. </p>
+        </div>
+
+        <br>
+        <br>
+        <button class="btn btn-primary">Add Schedule</button>
+    </form>
+</div>
+
+<button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToJobs()">Go to the jobs dashboard</button>
+<button (click)="this.userService.goToWorker()">Go to the worker dashboard</button>
+<button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToAdmin()">Go to the admin dashboard</button>

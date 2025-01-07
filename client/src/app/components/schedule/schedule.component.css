@@ -3,9 +3,15 @@
     text-indent: 15px;
 }
 
+.table_container{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+}
+
 table td {
-    height: 40px;
-    min-width: 160px;
+    height: 50px;
+    width: 160px;
     margin: 0;
     padding: 0;
     vertical-align: middle;
@@ -14,10 +20,28 @@ table td {
 
 .shift{
     border-radius: 20px;
-
+    height: 40px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 15px;
+    position: relative;
+}
+
+.shift_controls{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 85%;
+    margin-left: 10px;
+}
+
+.shift_icon{
+    height: 25px;
+    width: auto;
+
+    position: absolute;
+    left: 10px;
 }
 
 .shift_btn {
@@ -26,6 +50,7 @@ table td {
     cursor: pointer;
     padding: 0;
     font-size: 1.5rem;
+    opacity: 0.7;
 }
 
 .delete{
@@ -37,15 +62,16 @@ table td {
 }
 
 .shift_btn:hover {
-    color: #42a858;
+    opacity: 1;
 }
 
 .shift--morning{
-    background-color: lightgreen;
+    background-color: #c1fdb5;
 }
 
 .shift--night{
-    background-color: lightblue;
+    background-color: #281750;
+    color: white;
 }
 
 .unapproved{
