@@ -13,10 +13,35 @@ export class UserService {
   private apiUrl = 'https://localhost:44330/api/user';
   private apiUrlAdmin = 'https://localhost:44330/api/admin';
 
+  private jobTitles: { [key: number]: string} = {};
+
   constructor(
     private http: HttpClient,
     private router: Router,
     ) { }
+
+    
+  fetchJobTitles(): Observable<any>{
+    return this.http.get(`${this.apiUrl}/jobs`);
+  }
+
+  getJobTitleById(jobId: number): string {
+    return this.jobTitles[jobId] || 'Unknown Occupation';
+  }
+
+  loadJobTitles(): void {
+    this.fetchJobTitles().subscribe({
+      next: (data: any[]) => {
+        this.jobTitles = data.reduce((acc, job) => {
+          acc[job.id] = job.title;
+          return acc;
+        }, {});
+      },
+      error: (err) => {
+        console.error('Error fetching job titles:', err);
+      }
+    });
+  }
 
   decodeToken(token: string | null): any{
     if(!token) return null;

@@ -6,8 +6,10 @@
 
 <h2>Users List</h2>
 <ul>
-    <li *ngFor="let user of users">
-        <strong>{{ user.firstName }} {{ user.lastName }}</strong> - {{ user.jobId }} {{ user.roleId }}
-        <button (click)="deleteUser(user.id)">Delete</button>
-    </li>
+  <li *ngFor="let user of users">
+    <strong>{{ user.firstName }} {{ user.lastName }}</strong> 
+    - {{ getOccupationName(user.jobId) }} 
+    - {{ user.roleId }} 
+    <button (click)="deleteUser(user.id)">Delete</button>
+  </li>
 </ul>

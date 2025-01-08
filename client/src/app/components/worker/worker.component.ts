@@ -19,6 +19,7 @@ export class WorkerComponent {
 
   ngOnInit(): void{
     this.getUsers();
+    this.userService.loadJobTitles();
   }
 
   logOut(){
@@ -46,5 +47,9 @@ export class WorkerComponent {
         console.error('Error deleting user: ', err);
       }
     })
+  }
+
+  getOccupationName(jobId: number): string {
+    return this.userService.getJobTitleById(jobId);
   }
 }
