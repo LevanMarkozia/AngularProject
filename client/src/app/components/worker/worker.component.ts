@@ -10,10 +10,55 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class WorkerComponent {
 
-  constructor(protected userService: UserService,private router:Router){}
+  constructor(
+    protected userService: UserService,
+    private router:Router
+  ){}
+
+  users: any[] =[];
+
+  roleNames: any = {
+    1: "Admin",
+    2: "Worker"
+  }
+
+  ngOnInit(): void{
+    this.getUsers();
+    this.userService.loadJobTitles();
+  }
 
   logOut(){
     this.userService.logOut();
   }
 
+  getUsers(){
+    this.userService.getUsers().subscribe({
+      next: (data) => {
+        this.users = data;
+      },
+      error: (err) => {
+        console.error('Error fetching users: ', err);
+      }
+    });
+  }
+
+  deleteUser(userId: any): void{
+    this.userService.deleteUser(userId).subscribe({
+      next: () => {
+        console.log("User Deleted");
+        location.reload();
+      },
+      error: (err) => {
+        console.error('Error deleting user: ', err);
+      }
+    })
+  }
+
+  getOccupationName(jobId: number): string {
+    return this.userService.getJobTitleById(jobId);
+  }
+
+  getRoleName(roleId: any): string{
+    return this.roleNames[roleId];
+  }
 }
