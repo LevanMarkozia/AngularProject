@@ -17,6 +17,11 @@ export class WorkerComponent {
 
   users: any[] =[];
 
+  roleNames: any = {
+    1: "Admin",
+    2: "Worker"
+  }
+
   ngOnInit(): void{
     this.getUsers();
     this.userService.loadJobTitles();
@@ -51,5 +56,9 @@ export class WorkerComponent {
 
   getOccupationName(jobId: number): string {
     return this.userService.getJobTitleById(jobId);
+  }
+
+  getRoleName(roleId: any): string{
+    return this.roleNames[roleId];
   }
 }
