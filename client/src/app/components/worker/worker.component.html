@@ -1,5 +1,32 @@
 <app-navbar></app-navbar>
-<h1>Worker Dashboard</h1>
-<button (click)="logOut()">Log Out</button>
+<h1 class="text-center">Worker Dashboard</h1>
+
+<div class="container" *ngIf="this.userService.isAdmin()">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Occupation</th>
+                <th>Dashboard Privileges</th>
+                <th></th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.firstName}} {{user.lastName}}</td>
+                <td>{{getOccupationName(user.jobId)}}</td>
+                <td>
+                    {{getRoleName(user.roleId)}}
+                    <button *ngIf="user.roleId==1" class="btn btn-info" (click)="revokeAdmin(user)">Revoke admin</button>
+                    <button *ngIf="user.roleId==2" class="btn btn-info" (click)="giveAdmin(user)">Make admin</button>
+                </td>
+                <td><button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <button (click)="this.userService.goToSchedule()">Go to the schedules dashboard</button>
 <button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToAdmin()">Go to the admin dashboard</button>
+<button *ngIf="this.userService.isAdmin()" (click)="this.userService.goToJobs()">Go to the jobs dashboard</button>

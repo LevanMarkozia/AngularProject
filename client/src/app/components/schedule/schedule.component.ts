@@ -25,7 +25,7 @@ export class ScheduleComponent implements OnInit {
   jobs: Job[] = [];
   schedules: Schedule[] = [];
   requestForm!:FormGroup;
-  shiftOptions=[{name:"Morning"},{name:"Evening"}]
+  shiftOptions=["Morning", "Evening"];
   datePipe:DatePipe=new DatePipe('en-US','+0400');
 
   organizedSchedules: { [date: string]: { [jobId: number]: { morning: Schedule[], night: Schedule[] } } } = {};
@@ -112,7 +112,6 @@ export class ScheduleComponent implements OnInit {
   approveScheduleRequest(schedule:Schedule){
     if(!schedule.isApproved&&this.userService.isAdmin()){
       this.scheduleService.approveScheduleRequest(schedule).subscribe();
-      this.generateCurrentWeek();
       location.reload()
     }
   }
@@ -126,40 +125,49 @@ export class ScheduleComponent implements OnInit {
 
   requestSchedule(): void {
     if (this.requestForm.valid) {
-      const requestDate=this.requestForm.get("requestDate")?.value;
-      const shift=this.requestForm.get("shift")?.value;
-      let startTime:Date=new Date(requestDate);
-      let endTime:Date=new Date(requestDate);
-      if(shift=="Morning"){
-        startTime.setHours(8);
-        startTime.setMinutes(0);
-        startTime.setSeconds(0);
-        startTime.setMilliseconds(0);
-        endTime.setHours(16);
-        endTime.setMinutes(0);
-        endTime.setSeconds(0);
-        endTime.setMilliseconds(0);
-      }else if(shift=="Evening"){
-        startTime.setHours(16);
-        startTime.setMinutes(0);
-        startTime.setSeconds(0);
-        startTime.setMilliseconds(0);
-        endTime.setHours(22);
-        endTime.setMinutes(0);
-        endTime.setSeconds(0);
-        endTime.setMilliseconds(0);
-      }
-      const uid = this.userService.getUserId();
-      let requestData={startTime:startTime,endTime:endTime,userId:uid};
-      this.scheduleService.addScheduleRequest(requestData).subscribe({
-        next: (response) => {
-          console.log("Schedule requested: ",response);
-          alert("Schedule requested successfully.");
-        },
-        error: (error) => {
-          console.log('Request failed: ', error);
+        const requestDate = this.requestForm.get("requestDate")?.value;
+        const shift = this.requestForm.get("shift")?.value;
+
+        const startTime = new Date(requestDate);
+        const endTime = new Date(requestDate);
+
+        if (shift === "Morning") {
+            startTime.setHours(8, 0, 0, 0);
+            endTime.setHours(16, 0, 0, 0);
+        } else if (shift === "Evening") {
+            startTime.setHours(16, 0, 0, 0);
+            endTime.setHours(22, 0, 0, 0);
+        } else {
+            console.error("Invalid shift selected.");
+            return;
         }
-      });
+
+        const timeZoneOffset = startTime.getTimezoneOffset();
+
+        startTime.setMinutes(startTime.getMinutes() - timeZoneOffset);
+        endTime.setMinutes(endTime.getMinutes() - timeZoneOffset);
+
+        const uid = this.userService.getUserId();
+        const requestData = {
+            startTime: startTime.toISOString(),
+            endTime: endTime.toISOString(),
+            userId: uid,
+        };
+
+        console.log(requestData);
+
+        this.scheduleService.addScheduleRequest(requestData).subscribe({
+            next: (response) => {
+                console.log("Schedule requested successfully:", response);
+                alert("Schedule requested successfully.");
+                if(this.userService.isAdmin()) location.reload();
+            },
+            error: (error) => {
+                console.error("Request failed:", error);
+            },
+        });
+    } else {
+        console.error("Form is invalid.");
     }
   }
 
