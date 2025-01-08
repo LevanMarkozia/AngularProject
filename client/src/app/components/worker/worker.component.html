@@ -15,8 +15,8 @@
         <tbody>
             <tr *ngFor="let user of users">
                 <td>{{user.firstName}} {{user.lastName}}</td>
-                <td>{{getOccupationName(user.jobId)}} <button class="btn btn-info">Edit</button></td>
-                <td>{{getRoleName(user.roleId)}}</td>
+                <td>{{getOccupationName(user.jobId)}}</td>
+                <td>{{getRoleName(user.roleId)}} <button class="btn btn-info">Edit</button></td>
                 <td><button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button></td>
             </tr>
         </tbody>
